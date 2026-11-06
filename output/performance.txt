@@ -1,0 +1,43 @@
+Loaded 40000 reviews, tokenized in 0.6s (cached after first run)
+Train 32001 / validation 7999
+Vocabulary size: 44258 (built from the training split only) in 0.44s
+Training time (counts + Laplace smoothing): 0.84s
+Prediction: 7999 docs in 0.26s (30722 docs/s)
+
+Baseline (always 4*): accuracy=0.4693  macro-F1=0.1278  MAE=0.5976
+Naive Bayes (alpha=1): accuracy=0.5348  macro-F1=0.3177  MAE=0.5072
+
+class  precision  recall    F1    support
+  1*    0.000     0.000   0.000   83
+  2*    0.270     0.084   0.128   369
+  3*    0.514     0.528   0.521   2434
+  4*    0.560     0.704   0.624   3754
+  5*    0.481     0.235   0.316   1359
+
+alpha sweep (validation):
+  alpha     accuracy  macro-F1
+  0.01      0.4838    0.3856
+  0.03      0.4891    0.3964
+  0.1       0.4924    0.4027
+  0.3       0.5113    0.3817
+  0.5       0.5168    0.3489
+  1.0       0.5348    0.3177
+  2.0       0.5281    0.2576
+  5.0       0.5038    0.1920
+  best accuracy at alpha=1.0
+
+scaling with training size (alpha=1):
+  fraction  docs    vocab   train(s)  accuracy
+  0.1       3200    16530   0.23      0.4929
+  0.25      8000    23772   0.31      0.5102
+  0.5       16000   31824   0.60      0.5228
+  1.0       32001   44258   1.20      0.5348
+
+Top 10 class-specific words:
+  1*: แย่ แย่มาก พนักงาน เอา ถาม เสียความรู้สึก ห่วย บอก พอ นาที
+  2*: ไม่ พอ ไม่ค่อย ว่า พนักงาน จืด คง แต่ เหมือน ผม
+  3*: แต่ ไม่ ใช้ได้ รสชาติ ไม่ค่อย ก็ ดี โอเค อยู่ หน่อย
+  4*: อร่อย ชอบ ค่ะ ดี และ ร้าน เมนู เป็น มาก ด้วย
+  5*: มาก อร่อย กก ที่ พลาด จริงๆ แนะนำ สุด ของ ต้อง
+
+Wrote submission for 6203 test reviews
