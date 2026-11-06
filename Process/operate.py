@@ -19,3 +19,22 @@ def preprocess_dataset(dataset):
     
     return dataset
 
+def naive_bayes():
+    # Load the dataset
+    data = load_data()
+    
+    # Preprocess the dataset
+    processed_data = preprocess_dataset(data)
+    
+    # Split the dataset into training and testing sets
+    train_data, test_data = split_data(processed_data)
+    
+    # Train the Naive Bayes model
+    model = train_model(train_data)
+    
+    # Evaluate the model on the test set
+    accuracy = evaluate_model(model, test_data)
+    
+    print(f"Model Accuracy: {accuracy * 100:.2f}%")
+
+

@@ -1,0 +1,3 @@
+### Visualize Heatmap
+### Word Cloud รวมในกทุก ๆ Class, 1ดาว, 2ดาว, 3ดาว, 4ดาว, 5ดาว
+### Performance Testing Naive Bayes with Lapace Smoothing
