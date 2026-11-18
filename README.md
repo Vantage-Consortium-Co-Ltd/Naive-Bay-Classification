@@ -60,3 +60,11 @@ Laplace (α = 1): **accuracy 0.510, macro-F1 0.343** ซึ่งตรงกั
 - ใช้ regex กรองเฉพาะคำไทย อังกฤษ และตัวเลข เพราะ `str.isalnum()` ให้ค่า False กับคำไทยที่มีสระบน/ล่างหรือวรรณยุกต์ (เช่น `"อร่อย".isalnum()` → False)
 - ตัด stopword ภาษาไทยของ PyThaiNLP ออก และไม่ใช้คำที่พบแค่ครั้งเดียวใน train (`min_df=2`)
 - word cloud ใช้ฟอนต์ Tahoma ที่ `C:/Windows/Fonts/tahoma.ttf` ถ้าใช้ macOS/Linux ให้แก้ `FONT` ใน `Process/visualize.py`
+
+## เทสต์
+
+```bash
+pytest
+```
+
+ไม่ต้องโหลดชุดข้อมูล Wongnai ตรวจว่า NaiveBayes ที่เขียนเองให้ค่าตรงกับ sklearn MultinomialNB ทุกค่า alpha, สูตร Laplace ถูกต้อง, ผลของ alpha=0 และการตัดคำไทย
