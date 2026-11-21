@@ -19,7 +19,7 @@ def preprocess_text(text):
     # Tokenize the text using PyThaiNLP (newmm: dictionary-based, much faster than "longest" on 46k reviews)
     tokens = word_tokenize(text.lower(), engine="newmm", keep_whitespace=False)
 
-    # Keep Thai/English words and numbers, drop punctuation, emoji and stopwords
+    # Keep Thai/English words and numbers, drop punctuation, emoji and stopwords 
     return [t for t in tokens if WORD.match(t) and t not in STOPWORDS]
 
 
@@ -50,7 +50,7 @@ class NaiveBayes:
 
     def __init__(self, alpha=1.0):
         self.alpha = alpha
-
+        
     def fit(self, X, y):
         self.classes = np.unique(y)
         counts = np.vstack([np.asarray(X[y == c].sum(0)).ravel() for c in self.classes])  # (K, V)
